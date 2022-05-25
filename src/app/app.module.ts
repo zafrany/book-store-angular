@@ -3,12 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookComponent } from './book/book.component';
+import { BookDisplayCardComponent } from './components/book-display-card/book-display-card.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent
+    BookDisplayCardComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

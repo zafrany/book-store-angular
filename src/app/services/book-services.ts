@@ -8,25 +8,25 @@ export class BookService {
     {
       bookId : 1,
       bookName: 'book1',
-      bookPictureLink: 'book1PicLink'
+      bookPictureLink: '../assets/images/book-covers/SH_Vol_1.png',
     },
 
     {
       bookId : 2,
       bookName: 'book2',
-      bookPictureLink: 'book2PicLink'
+      bookPictureLink: '../assets/images/book-covers/SH_Vol_2.png',
     },
 
     {
       bookId : 3,
       bookName: 'book3',
-      bookPictureLink: 'book3PicLink'
+      bookPictureLink: '../assets/images/book-covers/SH_Vol_3.png',
     },
 
     {
       bookId : 4,
       bookName: 'book4',
-      bookPictureLink: 'book4PicLink'
+      bookPictureLink: '../assets/images/book-covers/SH_Vol_4.png',
     },
   ]
 

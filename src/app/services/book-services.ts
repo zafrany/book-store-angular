@@ -2,7 +2,9 @@ import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
 import { Book } from "../models/book.model";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class BookService {
   private _books: Book[] = [
     {
@@ -34,6 +36,6 @@ export class BookService {
   booksData = this._bookSubject.asObservable();
 
   get books() {
-    return{...this._books};
+    return [...this._books];
   }
 }

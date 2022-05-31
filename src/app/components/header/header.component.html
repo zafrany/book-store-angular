@@ -1,1 +1,36 @@
-<p>header works!</p>
+<div class="header">
+  <div class="header__nav">
+    <a class="header-nav-item"
+      routerLink="/home"
+      routerLinkActive="active-link"
+    >
+      <a class="header__nav__home">
+        Storefront
+      </a>
+      <img src='../assets/images/shopping-bag.png'>
+    </a>
+    <div class="user-managment">
+      <a class="header-nav-item"
+        routerLink="/register"
+        routerLinkActive="active-link"
+      >
+        <a>Register</a>
+        <img src='../assets/images/add-user.png'>
+      </a>
+      <a class="header-nav-item"
+          routerLink="/login"
+          routerLinkActive="active-link"
+      >
+        <a>Login</a>
+        <img src='../assets/images/padlock.png'>
+      </a>
+      <a class="header-nav-item"
+          routerLink="/cart"
+          routerLinkActive="active-link"
+      >
+        <a>Cart</a>
+        <img src='../assets/images/shopping-cart.png'>
+      </a>
+    </div>
+  </div>
+</div>

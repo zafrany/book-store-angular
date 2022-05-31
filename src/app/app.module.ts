@@ -7,7 +7,9 @@ import { BookDisplayCardComponent } from './components/book-display-card/book-di
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { StorefrontDisplayComponent } from './components/storefront-display/storefront-display.component';
-
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +18,13 @@ import { StorefrontDisplayComponent } from './components/storefront-display/stor
     HeaderComponent,
     FooterComponent,
     StorefrontDisplayComponent,
+    SignupFormComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

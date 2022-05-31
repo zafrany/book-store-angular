@@ -1,0 +1,51 @@
+<div class="container">
+  <h3>Register a new user</h3>
+  <form [formGroup]="signupForm">
+    <input
+      type="text"
+      class="input-text"
+      placeholder="User name"
+      formControlName="userName"
+      required
+    />
+    <input
+      type="text"
+      class="input-text"
+      placeholder="First name"
+      formControlName="firstName"
+      required
+    />
+    <div class="invalid-message" *ngIf="firstName?.touched && firstName?.invalid">{{invalidFirstNameMessage()}}</div>
+    <input
+      type="text"
+      class="input-text"
+      placeholder="Last name"
+      formControlName="lastName"
+      required
+    />
+    <input
+      type="text"
+      class="input-text"
+      placeholder="Email"
+      formControlName="email"
+      required
+    />
+    <input
+      type="password"
+      class="input-text"
+      placeholder="Password"
+      formControlName="password"
+      required
+    />
+    <div class="invalid-message" *ngIf="password?.touched && password?.invalid">{{invalidPasswordMessage()}}</div>
+    <input
+      type="password"
+      class="input-text"
+      placeholder="Repeat password"
+      formControlName="repeatPassword"
+      required
+    />
+    <div class="invalid-message" *ngIf="passwordRepeated?.touched && (passwordRepeated?.invalid || signupForm.errors?.['passwordMismatch'])">{{passwordMismatchMessage()}}</div>
+    <button type="submit" [disabled]="signupForm.invalid" class="button-submit">Submit</button>
+  </form>
+</div>

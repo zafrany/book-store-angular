@@ -14,9 +14,11 @@
   align-items: center;
   margin: auto;
   flex-flow: column;
+  flex-wrap: wrap;
 }
 
 form{
+  width: 100%;
   border: 2px solid #118ab2;
   border-radius: 5px;
   margin: 2rem;

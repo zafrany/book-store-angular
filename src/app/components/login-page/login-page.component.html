@@ -1,0 +1,23 @@
+<div class="container">
+  <h3>Exisiting user login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+    <input
+      type="text"
+      class="input-text"
+      placeholder="User name"
+      formControlName="userName"
+      required
+    />
+    <div class="invalid-message" *ngIf="userName?.touched && userName?.invalid">{{invalidUserNameMessage()}}</div>
+    <input
+      type="password"
+      class="input-text"
+      placeholder="Password"
+      formControlName="password"
+      required
+    />
+    <div class="invalid-message" *ngIf="password?.touched && password?.invalid">{{invalidPasswordMessage()}}</div>
+    <button type="submit" [disabled]="loginForm.invalid" class="button-submit">Login</button>
+  </form>
+</div>
+

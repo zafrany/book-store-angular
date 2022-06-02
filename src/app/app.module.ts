@@ -10,6 +10,7 @@ import { StorefrontDisplayComponent } from './components/storefront-display/stor
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     StorefrontDisplayComponent,
     SignupFormComponent,
     PageNotFoundComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,5 @@
-import { Book } from "./book.model";
-import { User } from "./user.model";
+import { CartItem } from "./cart-item.model";
 
 export interface Cart {
-  user : User,
-  items: Book[],
+  items: CartItem[],
 }

@@ -1,13 +1,16 @@
 <div class="container">
   <h3>Register a new user</h3>
-  <form [formGroup]="signupForm">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmitSubscribeForm()">
     <input
       type="text"
       class="input-text"
       placeholder="User name"
       formControlName="userName"
       required
+      (input)="onUserNameInput()"
     />
+    <div class="invalid-message" *ngIf="userName?.touched && userName?.invalid">{{invalidUserNameMessage()}}</div>
+    <div class="invalid-message" *ngIf="userExists">User name allready exists, choose a different user name.</div>
     <input
       type="text"
       class="input-text"
@@ -15,7 +18,7 @@
       formControlName="firstName"
       required
     />
-    <div class="invalid-message" *ngIf="firstName?.touched && firstName?.invalid">{{invalidFirstNameMessage()}}</div>
+    <div class="invalid-message" *ngIf="firstName?.touched && firstName?.invalid">{{invalidNameMessage(firstName)}}</div>
     <input
       type="text"
       class="input-text"
@@ -23,6 +26,7 @@
       formControlName="lastName"
       required
     />
+    <div class="invalid-message" *ngIf="lastName?.touched && lastName?.invalid">{{invalidNameMessage(lastName)}}</div>
     <input
       type="text"
       class="input-text"
@@ -30,6 +34,7 @@
       formControlName="email"
       required
     />
+    <div class="invalid-message" *ngIf="email?.touched && email?.invalid">{{invalidEmailMessage()}}</div>
     <input
       type="password"
       class="input-text"

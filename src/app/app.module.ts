@@ -11,6 +11,8 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
 import { ReactiveFormsModule } from '@angular/forms';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductComponent } from './components/product/product.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { LoginPageComponent } from './components/login-page/login-page.component
     SignupFormComponent,
     PageNotFoundComponent,
     LoginPageComponent,
+    CartComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

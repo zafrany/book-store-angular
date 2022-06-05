@@ -20,11 +20,25 @@ export class UsersService {
     }
   ]
 
+  private _currentUser: User|null = null;
+
+  private _currentUserSubject = new Subject<User> ();
+  currentUserData = this._currentUserSubject.asObservable();
+
   private _userSubject = new Subject<User[]> ();
   userData = this._userSubject.asObservable();
 
   get users() {
     return [...this._users];
+  }
+
+  get currentUser() {
+    return this._currentUser;
+  }
+
+  setCurrentUser(user: User){
+    this._currentUser = user;
+    this._currentUserSubject.next(this._currentUser);
   }
 
   addUser(user: User){

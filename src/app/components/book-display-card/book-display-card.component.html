@@ -1,8 +1,9 @@
 <div class="storefront-container">
   <div class="card">
-    <img src={{book.bookPictureLink}} class="picture-flex-container" >
+    <img src={{book.bookPictureLink}} class="picture-flex-container" (click)="onBookImgClick(book.bookId, book.bookName)">
     <div>{{book.bookName}}</div>
     <div>Product ID: {{book.bookId}}</div>
+    <button class="add-to-cart-button">Add to cart</button>
   </div>
 </div>
 

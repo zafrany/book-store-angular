@@ -13,6 +13,7 @@
       <a class="header-nav-item"
         routerLink="/register"
         routerLinkActive="active-link"
+        *ngIf="!userLogged"
       >
         <a>Register</a>
         <img src='../assets/images/add-user.png'>
@@ -20,9 +21,19 @@
       <a class="header-nav-item"
           routerLink="/login"
           routerLinkActive="active-link"
+          *ngIf="!userLogged"
       >
         <a>Login</a>
         <img src='../assets/images/padlock.png'>
+      </a>
+      <a class="header-nav-item"
+          routerLink="/home"
+          routerLinkActive="active-link"
+          *ngIf="userLogged"
+          (click)="onLogout()"
+      >
+        <a>Logout</a>
+        <img src='../assets/images/logout.png'>
       </a>
       <a class="header-nav-item"
           routerLink="/cart"

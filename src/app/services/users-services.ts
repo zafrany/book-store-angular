@@ -15,7 +15,16 @@ export class UsersService {
       password: '123moshe',
       userName: 'moshe',
       cart: {
-        items: []
+        items: [
+          {
+            item: {
+              bookId : 2,
+              bookName: 'book2',
+              bookPictureLink: '../assets/images/book-covers/SH_Vol_2.png',
+            },
+            quantity: 3
+          },
+        ]
       },
     }
   ]

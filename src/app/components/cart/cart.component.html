@@ -1,1 +1,8 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <ng-container *ngIf="!emptyCart">
+    <app-book-display-card *ngFor="let book of books" [book]="book"></app-book-display-card>
+  </ng-container>
+  <ng-container *ngIf="emptyCart">
+    <h3>Your cart is empty.</h3>
+  </ng-container>
+</div>

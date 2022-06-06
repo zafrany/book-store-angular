@@ -13,6 +13,7 @@ export class ProductComponent implements OnInit {
 
   books!: Book[];
   book: Book|null = null;
+  bookId!: string|null;
   constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,9 +23,13 @@ export class ProductComponent implements OnInit {
     })
     this.books = this.bookService.books;
 
+    this.route.paramMap.subscribe(params=>{
+      this.bookId =  params.get('bookId');
+    })
+
     this.route.queryParams.subscribe(params=>{
       for(let book of this.books){
-        if(book.bookId === parseInt(params['BookId']) && book.bookName === params['BookName'])
+        if(book.bookId === parseInt(<string>this.bookId) && book.bookName === params['BookName'])
           this.book = book;
       }
       if (this.book === null)

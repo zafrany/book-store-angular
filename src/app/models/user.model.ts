@@ -1,4 +1,3 @@
-import { EmailValidator } from "@angular/forms";
 import { Cart } from "./cart.model";
 
 export interface User {

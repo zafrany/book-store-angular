@@ -3,14 +3,12 @@
   height: 4rem;
   background:rgb(126, 156, 255);
   position: fixed;
-}
-
-.header__nav {
-  width: 70%;
-  height: 100%;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+.store-flex {
+  display: flex;
   align-items: center;
 }
 
@@ -18,11 +16,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
 }
 
 .user-managment {
   display: flex;
-  flex-direction: row;
+  padding-right: 2rem;
 }
 
 img {
@@ -33,12 +32,16 @@ img {
 a {
   text-decoration: none;
   font-size: 1rem;
-  color: white;
   margin: 0 1rem;
 }
 
 .header__nav__home {
   font-weight: 700;
+}
+
+.logged-user{
+  font-size: 1rem;
+  margin: 0 1rem;
 }
 
 .active-link {

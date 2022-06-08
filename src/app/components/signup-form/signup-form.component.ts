@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { UsersService } from 'src/app/services/users-services';
 import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup-form',
@@ -20,7 +21,7 @@ export class SignupFormComponent implements OnInit {
   users: User[] = [];
   userExists: boolean = false;
 
-  constructor(private fb: FormBuilder, private userService: UsersService) { }
+  constructor(private fb: FormBuilder, private userService: UsersService, private router: Router) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -63,6 +64,8 @@ export class SignupFormComponent implements OnInit {
         }
       }
       this.userService.addUser(user);
+      this.userService.setCurrentUser(user);
+      this.router.navigate(['home/']);
     }
   }
 

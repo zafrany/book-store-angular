@@ -13,6 +13,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './components/product/product.component';
+import { AddToCartButtonComponent } from './components/add-to-cart-button/add-to-cart-button.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,11 +28,13 @@ import { ProductComponent } from './components/product/product.component';
     LoginPageComponent,
     CartComponent,
     ProductComponent,
+    AddToCartButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

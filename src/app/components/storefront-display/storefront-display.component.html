@@ -1,3 +1,5 @@
 <div class="storefront-container">
-  <app-book-display-card *ngFor="let book of books" [book]="book"></app-book-display-card>
+  <app-book-display-card *ngFor="let book of books" [book]="book">
+      <app-add-to-cart-button (click)="addToCartOnClick(book)"></app-add-to-cart-button>
+  </app-book-display-card>
 </div>

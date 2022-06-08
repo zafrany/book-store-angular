@@ -1,47 +1,48 @@
 <div class="header">
-  <div class="header__nav">
-    <a class="header-nav-item"
-      routerLink="/home"
-      routerLinkActive="active-link"
-    >
-      <a class="header__nav__home">
-        Storefront
-      </a>
-      <img src='../assets/images/shopping-bag.png'>
+  <a class="store-flex header-nav-item"
+    routerLink="/home"
+    routerLinkActive="active-link"
+  >
+    <a class="header__nav__home">
+      Storefront
     </a>
-    <div class="user-managment">
-      <a class="header-nav-item"
-        routerLink="/register"
+    <img src='../assets/images/shopping-bag.png'>
+  </a>
+  <div class="user-managment">
+    <a class="header-nav-item"
+      routerLink="/register"
+      routerLinkActive="active-link"
+      *ngIf="!userLogged"
+    >
+      <a>Register</a>
+      <img src='../assets/images/add-user.png'>
+    </a>
+    <a class="header-nav-item"
+        routerLink="/login"
         routerLinkActive="active-link"
         *ngIf="!userLogged"
-      >
-        <a>Register</a>
-        <img src='../assets/images/add-user.png'>
-      </a>
-      <a class="header-nav-item"
-          routerLink="/login"
-          routerLinkActive="active-link"
-          *ngIf="!userLogged"
-      >
-        <a>Login</a>
-        <img src='../assets/images/padlock.png'>
-      </a>
-      <a class="header-nav-item"
-          routerLink="/home"
-          routerLinkActive="active-link"
-          *ngIf="userLogged"
-          (click)="onLogout()"
-      >
-        <a>Logout</a>
-        <img src='../assets/images/logout.png'>
-      </a>
-      <a class="header-nav-item"
-          routerLink="/cart"
-          routerLinkActive="active-link"
-      >
-        <a>Cart</a>
-        <img src='../assets/images/shopping-cart.png'>
-      </a>
+    >
+      <a>Login</a>
+      <img src='../assets/images/padlock.png'>
+    </a>
+    <a class="header-nav-item"
+        routerLink="/home"
+        *ngIf="userLogged"
+        (click)="onLogout()"
+    >
+      <a>Logout</a>
+      <img src='../assets/images/logout.png'>
+    </a>
+    <a class="header-nav-item"
+        routerLink="/cart"
+        routerLinkActive="active-link"
+    >
+      <a>Cart</a>
+      <img src='../assets/images/shopping-cart.png'>
+    </a>
+    <div class="header-nav-item logged-user" *ngIf="currentUser!==null">
+      <img src='../assets/images/user-logged.png'>
+      <div class="logged-user">Good day, {{currentUser.userName}}</div>
     </div>
   </div>
 </div>

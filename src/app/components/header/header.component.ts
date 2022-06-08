@@ -26,6 +26,6 @@ export class HeaderComponent implements OnInit {
 
   onLogout(){
     this.userLogged = false;
-    this.currentUser = null;
+    this.userService.logoutUser();
   }
 }

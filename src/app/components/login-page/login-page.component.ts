@@ -25,9 +25,6 @@ export class LoginPageComponent implements OnInit {
     }
     );
 
-    this.userName = this.loginForm.get('userName');
-    this.password = this.loginForm.get('password');
-
     this.userService.userData.subscribe((users)=>{
       this.users = users;
     })
@@ -35,6 +32,9 @@ export class LoginPageComponent implements OnInit {
   }
 
   onSubmitLoginForm() {
+    this.userName = this.loginForm.get('userName');
+    this.password = this.loginForm.get('password');
+
     for(let user of this.users){
       if(user.userName === this.userName?.value){
         if(user.password === this.password?.value){
@@ -44,11 +44,11 @@ export class LoginPageComponent implements OnInit {
           return;
         }
       }
-      this.loginFailed = true;
-      this.loginForm.controls['password'].setValue("");
-      this.loginForm.controls['userName'].setValue("");
-      console.log("login failed!");
     }
+    this.loginFailed = true;
+    this.loginForm.controls['password'].setValue("");
+    this.loginForm.controls['userName'].setValue("");
+    console.log("login failed!");
   }
 
   invalidPasswordMessage() {

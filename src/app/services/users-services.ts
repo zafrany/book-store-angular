@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
-import { CartComponent } from "../components/cart/cart.component";
 import { Book } from "../models/book.model";
+import { CartItem } from "../models/cart-item.model";
 import { User } from "../models/user.model";
 
 @Injectable({
@@ -83,6 +83,24 @@ export class UsersService {
         this._userSubject.next([...this._users]);
         return;
       }
+    }
+  }
+
+  changeItemQuantity(cartItem: CartItem, quantity: number){
+    let newCart : CartItem [] = [];
+    for(let user of this._users){
+      if(user === this._currentUser){
+        for(let loopCartItem of user.cart.items){
+          if (loopCartItem === cartItem){
+            loopCartItem.quantity = quantity;
+          }
+
+          if(loopCartItem.quantity !== 0)
+            newCart.push(loopCartItem);
+        }
+      }
+      user.cart.items = newCart;
+      return;
     }
   }
 }

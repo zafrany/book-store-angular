@@ -2,12 +2,19 @@
   <app-book-display-card *ngFor="let cartItem of currentLoggedUser?.cart?.items; let i = index" [book]="cartItem.item">
     <div>
       <label for="quantity">Quantity:</label>
-      <select [(ngModel)]="currentLoggedUser?.cart!.items[i].quantity" (ngModelChange)="onQuantityChange(cartItem, $event)">
-        <option *ngFor="let quantity of quantityArray">{{quantity}}</option>
+      <select (change)="onQuantityChange(cartItem, $event)">
+        <option [selected]="quantity === currentLoggedUser?.cart!.items[i].quantity" *ngFor="let quantity of quantityArray">{{quantity}}</option>
       </select>
     </div>
-    </app-book-display-card>
+    <div class="modal" *ngIf="displayModal">
+      <div class="modal-content">Changing quantity to 0 will remove the item, are you sure?
+        <button (click)="onYesClick()">Yes</button>
+        <button (click)="onNoClick()">No</button>
+      </div>
+    </div>
+  </app-book-display-card>
   <div class="empty-cart" *ngIf="emptyCart">
     <h3>Your cart is empty.</h3>
   </div>
 </div>
+

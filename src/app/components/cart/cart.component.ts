@@ -32,18 +32,19 @@ export class CartComponent implements OnInit
         this.emptyCart = false;
     }
 
-    for(let i = 0; i <= this.maxQuantity; i++){
+    for(let i = 1; i <= this.maxQuantity; i++){
       this.quantityArray.push(i);
     }
   }
   onQuantityChange(cartItem: CartItem, selectionEvent: Event){
     const quantity = selectionEvent.target as HTMLInputElement;
-    this.currentItem = cartItem;
 
-    if(parseInt(quantity.value) !== 0)
-      this.userService.changeItemQuantity(cartItem, parseInt(quantity.value));
-    else
-      this.displayModal = true;
+    this.userService.changeItemQuantity(cartItem, parseInt(quantity.value));
+  }
+
+  onRemoveClick(cartItem: CartItem){
+    this.displayModal = true;
+    this.currentItem = cartItem;
   }
 
   onYesClick(){
@@ -56,7 +57,7 @@ export class CartComponent implements OnInit
 
   onNoClick(){
     this.displayModal = false;
-    this.reloadComponent();
+    //this.reloadComponent();
   }
 
   reloadComponent() {

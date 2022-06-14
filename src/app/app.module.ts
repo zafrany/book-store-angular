@@ -16,6 +16,9 @@ import { ProductComponent } from './components/product/product.component';
 import { AddToCartButtonComponent } from './components/add-to-cart-button/add-to-cart-button.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import { AdminComponent } from './components/admin/admin.component';
     ProductComponent,
     AddToCartButtonComponent,
     AdminComponent,
+    AdminHeaderComponent,
+    AdminLoginComponent,
+    AdminManagmentComponent,
   ],
   imports: [
     BrowserModule,

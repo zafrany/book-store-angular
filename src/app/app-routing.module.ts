@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { BookDisplayCardComponent } from './components/book-display-card/book-display-card.component';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -16,7 +17,10 @@ const routes:Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'products/:bookId', component: ProductComponent},
   {path: 'cart', component: CartComponent, canActivate: [CartLoginGuardGuard]},
-  {path: 'admin', component: AdminComponent},
+  {path: 'admin', component: AdminComponent, children: [
+    {path: '', component:AdminLoginComponent},
+    {path: 'managment', component:AdminManagmentComponent},
+  ]},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ]

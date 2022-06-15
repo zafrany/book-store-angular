@@ -19,8 +19,7 @@ export class AdminService {
   private _currentAdminSubject = new Subject<AdminUser|null> ();
   currentAdminUserData = this._currentAdminSubject.asObservable();
 
-  private _adminSubject =
-  new Subject<AdminUser[]> ();
+  private _adminSubject = new Subject<AdminUser[]> ();
   adminData = this._adminSubject.asObservable();
 
   get admins() {

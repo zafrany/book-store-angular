@@ -16,5 +16,4 @@ export class CartLoginGuardGuard implements CanActivate {
       return true;
     return this.router.createUrlTree(['/login'])
   }
-
 }

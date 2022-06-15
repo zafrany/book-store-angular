@@ -1,4 +1,18 @@
 <app-admin-header></app-admin-header>
-<div class="admin-functions-container">
-
+<div class="body-container">
+  <h3>Administrator dashboard:</h3>
+  <div class="admin-functions-container">
+    <div class="function-card">
+      <img src='../assets/images/key.png'>
+      <button (click)="passwordChangePageNavigate()">Change Administrator password</button>
+    </div>
+    <div class="function-card">
+      <img src='../assets/images/edit-book.png'>
+      <button>Edit/Remove book</button>
+    </div>
+    <div class="function-card">
+      <img src='../assets/images/add-book.png'>
+      <button>Add a new book</button>
+    </div>
+  </div>
 </div>

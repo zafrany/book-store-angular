@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
+import { AdminPasswordChangeComponent } from './components/admin-password-change/admin-password-change.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { CartComponent } from './components/cart/cart.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
@@ -17,10 +18,13 @@ const routes:Routes = [
   {path: 'login', component: LoginPageComponent},
   {path: 'products/:bookId', component: ProductComponent},
   {path: 'cart', component: CartComponent, canActivate: [CartLoginGuardGuard]},
-  {path: 'admin', component: AdminComponent, children: [
-    {path: '', component:AdminLoginComponent},
-    {path: 'managment', component:AdminManagmentComponent},
-  ]},
+  {path: 'admin', component: AdminComponent, children:
+    [
+      {path: '', component:AdminLoginComponent},
+      {path: 'managment', component:AdminManagmentComponent},
+      {path: 'admin-password-change', component: AdminPasswordChangeComponent},
+    ]
+  },
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: '**', component: PageNotFoundComponent}
 ]

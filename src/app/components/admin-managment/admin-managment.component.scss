@@ -1,8 +1,51 @@
+:host {
+  display: block;
+  width: 100%;
+  background: #1a3953;
+}
+
+.body-container{
+  padding-top: 4rem;
+}
+
+h3{
+  text-align: center;
+  padding: 1rem;
+  margin: 0px;
+  color: white;
+}
+
 .admin-functions-container {
   display: grid;
   grid-auto-flow: column;
-  padding-top: 4rem;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background: #1a3953;
+  justify-content: center;
+
+}
+
+.function-card{
+  display: flex;
+  flex-direction: column;
+  border: 5px solid white;
+  border-radius: 5px;
+  width: 10vw;
+  height: 25vh;
+  margin: 1rem;
+  background: #7e9cff;
+  padding: 10px;
+}
+
+button {
+  min-height: 3rem;
+  display: block;
+  height: fit-content;
+  padding: 0.5rem;
+  color: white;
+  background: #118ab2;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }

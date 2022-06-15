@@ -19,6 +19,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
+import { AdminPasswordChangeComponent } from './components/admin-password-change/admin-password-change.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { AdminManagmentComponent } from './components/admin-managment/admin-mana
     AdminHeaderComponent,
     AdminLoginComponent,
     AdminManagmentComponent,
+    AdminPasswordChangeComponent,
   ],
   imports: [
     BrowserModule,

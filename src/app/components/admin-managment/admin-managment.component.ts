@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-managment',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminManagmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  passwordChangePageNavigate() {
+    this.router.navigate(['admin/admin-password-change/']);
   }
 
 }

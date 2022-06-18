@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminEditRemoveBookComponent } from './components/admin-edit-remove-book/admin-edit-remove-book.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
 import { AdminPasswordChangeComponent } from './components/admin-password-change/admin-password-change.component';
@@ -23,6 +24,7 @@ const routes:Routes = [
       {path: '', component:AdminLoginComponent},
       {path: 'managment', component:AdminManagmentComponent},
       {path: 'admin-password-change', component: AdminPasswordChangeComponent},
+      {path: 'add-rmove-book', component: AdminEditRemoveBookComponent},
     ]
   },
   {path: '', redirectTo: '/home', pathMatch: 'full'},

@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>Edit/Remove book</h3>
+  <form>
+    <h2>Search for books:</h2>
+    <input #bookId (keyup)="updateBookId(bookId.value)"
+      type="text"
+      class="input-text"
+      placeholder="Book ID"
+    />
+    <input #bookName (keyup)="updateBookName(bookName.value)"
+      type="text"
+      class="input-text"
+      placeholder="Book Name"
+    />
+    <button (click)="filterBookResults()">Search books</button>
+  </form>
+  <button>Back to dashboard</button>
+</div>
+<h2>Search results:</h2>
+<div *ngIf="filteredResults.length !== 0" class="search-results">
+  <app-book-display-card *ngFor="let book of filteredResults" [book]="book">
+    <button>Edit book details</button>
+    <button>Remove book</button>
+  </app-book-display-card>
+</div>
+<div class="modal" *ngIf="displayModal">
+  <div class="modal-content">Remove the item, are you sure?
+    <button (click)="onYesClick()">Yes</button>
+    <button (click)="onNoClick()">No</button>
+  </div>
+</div>
+

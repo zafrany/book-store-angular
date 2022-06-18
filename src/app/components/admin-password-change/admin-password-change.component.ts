@@ -76,6 +76,10 @@ export class AdminPasswordChangeComponent implements OnInit {
     }, 2000);
   }
 
+  dashboardNavigate() {
+    this.router.navigate(['admin/managment']);
+  }
+
   onSubmitPasswordChangeForm() {
     this.currentPasswordMismatch = false;
     this.newPasswordEqualsCurrent = false;

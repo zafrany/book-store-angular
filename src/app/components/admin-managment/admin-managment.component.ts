@@ -17,4 +17,8 @@ export class AdminManagmentComponent implements OnInit {
     this.router.navigate(['admin/admin-password-change/']);
   }
 
+  addRemoveNavigate(){
+    this.router.navigate(['admin/add-rmove-book/']);
+  }
+
 }

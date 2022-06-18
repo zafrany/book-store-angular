@@ -1,30 +1,43 @@
 :host {
   display: block;
   width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  min-height: 100vh;
   background: #1a3953;
 }
 
-h3{
-  color:white;
+h3, h2{
+  color: white;
+}
+
+h2 {
+  margin-left: 1rem;
 }
 
 .container {
-  padding-top: 4rem;
   width: 40%;
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin: auto;
   flex-flow: column;
+  flex-wrap: wrap;
+}
+
+.search-results {
+  border-radius: 5px;
+  display: grid;
+  grid-auto-flow: column;
+  border: 2px solid #118ab2;
+  margin: 1rem;
 }
 
 form{
+  width: 100%;
   border: 2px solid #118ab2;
   border-radius: 5px;
   margin: 2rem;
   padding: 1rem;
-  width: 100%;
 }
 
 .input-text {
@@ -42,6 +55,7 @@ form{
 }
 
 button {
+  cursor: pointer;
   display: block;
   padding: 0.5rem;
   color: white;
@@ -49,14 +63,4 @@ button {
   margin-top: 1rem;
   border: none;
   border-radius: 5px;
-}
-
-.button-submit:disabled{
-  background: #ccc;
-  cursor: not-allowed;
-}
-
-.invalid-message {
-  color: #d90429;
-  font-size: 0.75rem;
 }

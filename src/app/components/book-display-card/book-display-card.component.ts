@@ -24,6 +24,8 @@ export class BookDisplayCardComponent implements OnInit {
   }
 
   onBookImgClick(bookId: number, bookName: string){
+    if(this.router.url.includes('admin'))
+      return;
     this.router.navigate(['products/', this.book.bookId], { queryParams: {BookName: bookName }});
   }
 }

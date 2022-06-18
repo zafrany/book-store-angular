@@ -20,6 +20,7 @@ import { AdminHeaderComponent } from './components/admin-header/admin-header.com
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
 import { AdminPasswordChangeComponent } from './components/admin-password-change/admin-password-change.component';
+import { AdminEditRemoveBookComponent } from './components/admin-edit-remove-book/admin-edit-remove-book.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdminPasswordChangeComponent } from './components/admin-password-change
     AdminLoginComponent,
     AdminManagmentComponent,
     AdminPasswordChangeComponent,
+    AdminEditRemoveBookComponent,
   ],
   imports: [
     BrowserModule,

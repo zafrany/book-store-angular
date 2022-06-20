@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="addBookForm" (ngSubmit)="onSubmitAddBookForm()">
+    <h2>Add a new book:</h2>
+    <div class="update-form-row">
+      <div class="update-form-row-desc">Book Id:</div>
+      <input (keydown)="removeSuccessMessage()"
+      formControlName="bookId"
+      type="text"
+      class="input-text"
+      placeholder="Book ID"
+      required
+      />
+    </div>
+    <div class="invalid-message" *ngIf="addBookForm.errors?.['idNotUnique']">{{idNotUniqueMessage()}}</div>
+    <div class="update-form-row">
+      <div class="update-form-row-desc">Book name:</div>
+      <input (keydown)="removeSuccessMessage()"
+      formControlName="bookName"
+      type="text"
+      class="input-text"
+      placeholder="Book Name"
+      required
+      />
+    </div>
+    <div class="update-form-row">
+      <div class="update-form-row-desc">Picture link:</div>
+      <input (keydown)="removeSuccessMessage()"
+        formControlName="bookPicLink"
+        type="text"
+        class="input-text"
+        placeholder="Book picture link"
+        required
+      />
+    </div>
+    <button type="submit" [disabled]="addBookForm.invalid">Add book</button>
+    <h3 *ngIf="operationSuccess">Book added successfuly.</h3>
+  </form>
+  <button (click)="dashboardNavigate()">Back to dashboard</button>
+</div>

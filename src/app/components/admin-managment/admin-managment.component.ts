@@ -21,4 +21,7 @@ export class AdminManagmentComponent implements OnInit {
     this.router.navigate(['admin/add-rmove-book/']);
   }
 
+  addBookNavigate(){
+    this.router.navigate(['admin/add-book/']);
+  }
 }

@@ -14,19 +14,60 @@
     />
     <button (click)="filterBookResults()">Search books</button>
   </form>
-  <button>Back to dashboard</button>
+  <button (click)="dashboardNavigate()">Back to dashboard</button>
 </div>
 <h2>Search results:</h2>
 <div *ngIf="filteredResults.length !== 0" class="search-results">
   <app-book-display-card *ngFor="let book of filteredResults" [book]="book">
-    <button>Edit book details</button>
-    <button>Remove book</button>
+    <button (click)="onUpdateBookClick(book)">Edit book details</button>
+    <button (click)="onRemoveClick(book)">Remove book</button>
   </app-book-display-card>
 </div>
 <div class="modal" *ngIf="displayModal">
   <div class="modal-content">Remove the item, are you sure?
     <button (click)="onYesClick()">Yes</button>
     <button (click)="onNoClick()">No</button>
+  </div>
+</div>
+<div class="modal" *ngIf="displayEditBookModal">
+  <div class="edit-book-modal">
+    <app-book-display-card [book]="this.currentItem!"></app-book-display-card>
+    <form [formGroup]="editDetailsForm" (ngSubmit)="onSubmitEditForm()">
+      <h2>Edit book details:</h2>
+      <div class="update-form-row">
+        <div class="update-form-row-desc">Book Id:</div>
+        <input
+        formControlName="bookId"
+        type="text"
+        class="input-text-edit-form"
+        placeholder="Book ID"
+        required
+        />
+      </div>
+      <div class="invalid-message" *ngIf="editDetailsForm.errors?.['idNotUnique']">{{idNotUniqueMessage()}}</div>
+      <div class="update-form-row">
+        <div class="update-form-row-desc">Book name:</div>
+        <input
+        formControlName="bookName"
+        type="text"
+        class="input-text-edit-form"
+        placeholder="Book Name"
+        required
+        />
+      </div>
+      <div class="update-form-row">
+        <div class="update-form-row-desc">Picture link:</div>
+        <input
+          formControlName="bookPicLink"
+          type="text"
+          class="input-text-edit-form"
+          placeholder="Book picture link"
+          required
+        />
+      </div>
+      <button type="submit" [disabled]="editDetailsForm.invalid">Save changes</button>
+      <button type="button" (click)="cancelUpdate()">Cancel</button>
+    </form>
   </div>
 </div>
 

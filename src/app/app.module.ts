@@ -21,6 +21,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminManagmentComponent } from './components/admin-managment/admin-managment.component';
 import { AdminPasswordChangeComponent } from './components/admin-password-change/admin-password-change.component';
 import { AdminEditRemoveBookComponent } from './components/admin-edit-remove-book/admin-edit-remove-book.component';
+import { AdminAddBookComponent } from './components/admin-add-book/admin-add-book.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AdminEditRemoveBookComponent } from './components/admin-edit-remove-boo
     AdminManagmentComponent,
     AdminPasswordChangeComponent,
     AdminEditRemoveBookComponent,
+    AdminAddBookComponent,
   ],
   imports: [
     BrowserModule,

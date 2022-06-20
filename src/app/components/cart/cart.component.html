@@ -8,12 +8,6 @@
       </select>
     </div>
   </app-book-display-card>
-  <div class="modal" *ngIf="displayModal">
-    <div class="modal-content">Remove the item, are you sure?
-      <button (click)="onYesClick()">Yes</button>
-      <button (click)="onNoClick()">No</button>
-    </div>
-  </div>
   <div class="empty-cart" *ngIf="emptyCart">
     <h3>Your cart is empty.</h3>
   </div>

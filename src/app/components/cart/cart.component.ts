@@ -38,7 +38,6 @@ export class CartComponent implements OnInit
   }
   onQuantityChange(cartItem: CartItem, selectionEvent: Event){
     const quantity = selectionEvent.target as HTMLInputElement;
-
     this.userService.changeItemQuantity(cartItem, parseInt(quantity.value));
   }
 
@@ -57,14 +56,6 @@ export class CartComponent implements OnInit
 
   onNoClick(){
     this.displayModal = false;
-    //this.reloadComponent();
   }
-
-  reloadComponent() {
-    let currentUrl = this.router.url;
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate([currentUrl]);
-    }
 }
 

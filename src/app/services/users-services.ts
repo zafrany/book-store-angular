@@ -18,14 +18,6 @@ export class UsersService {
       userName: 'moshe',
       cart: {
         items: [
-          {
-            item: {
-              bookId : 2,
-              bookName: 'book2',
-              bookPictureLink: '../assets/images/book-covers/SH_Vol_2.png',
-            },
-            quantity: 3
-          },
         ]
       },
     }

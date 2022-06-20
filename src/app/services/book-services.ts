@@ -38,4 +38,19 @@ export class BookService {
   get books() {
     return [...this._books];
   }
+
+  removeBook(bookToRemove: Book) {
+    let updatedBooks : Book[] = [];
+    for(let book of this._books){
+      if(book !== bookToRemove)
+        updatedBooks.push(book);
+    }
+    this._books = updatedBooks;
+    this._bookSubject.next([...this._books]);
+  }
+
+  addBook(bookToAdd: Book){
+    this._books.push(bookToAdd);
+    this._bookSubject.next([...this._books]);
+  }
 }

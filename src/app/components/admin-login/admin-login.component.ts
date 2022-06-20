@@ -29,6 +29,8 @@ export class AdminLoginComponent implements OnInit {
       this.admins = admins;
     })
     this.admins = this.adminService.admins;
+    if(this.adminService.currentAdmin !== null)
+      this.router.navigate(['/admin/managment']);
   }
 
   onSubmitLoginForm() {

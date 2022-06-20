@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin-services';
 
 @Component({
   selector: 'app-admin',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
+    if (this.adminService.currentAdmin === null)
+       this.router.navigate(['admin-login']);
   }
 
 }

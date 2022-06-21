@@ -12,8 +12,6 @@ import { UsersService } from 'src/app/services/users-services';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-
-  books!: Book[];
   book: Book|null = null;
   bookId!: string|null;
   currentUser: User|null = null;
@@ -21,22 +19,14 @@ export class ProductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private bookService: BookService, private router: Router, private userService: UsersService) { }
 
   ngOnInit(): void {
-
-    this.bookService.booksData.subscribe((books)=>{
-      this.books = books;
-    })
-    this.books = this.bookService.books;
-
     this.route.paramMap.subscribe(params=>{
       this.bookId =  params.get('bookId');
     })
 
+    this.book = this.bookService.getBookById(parseInt(this.bookId!));
+
     this.route.queryParams.subscribe(params=>{
-      for(let book of this.books){
-        if(book.bookId === parseInt(<string>this.bookId) && book.bookName === params['BookName'])
-          this.book = book;
-      }
-      if (this.book === null)
+      if(this.book?.bookName !== params['BookName'])
         this.router.navigate(['page-not-found/']);
     })
 
@@ -44,13 +34,5 @@ export class ProductComponent implements OnInit {
       this.currentUser = user;
     })
     this.currentUser = this.userService.currentUser;
-  }
-
-  addToCartOnClick(book: Book) {
-    if(this.currentUser === null){
-      this.router.navigate(['login/']);
-      return;
-    }
-    this.userService.addToCart(book, 1, this.currentUser);
   }
 }

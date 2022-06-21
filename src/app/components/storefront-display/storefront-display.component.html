@@ -1,7 +1,7 @@
 <div class="storefront-container">
   <div *ngFor="let book of books" class="card-container">
     <app-book-display-card  [book]="book">
-        <app-add-to-cart-button (click)="addToCartOnClick(book)"></app-add-to-cart-button>
+        <app-add-to-cart-button [book]="book"></app-add-to-cart-button>
     </app-book-display-card>
   </div>
 </div>

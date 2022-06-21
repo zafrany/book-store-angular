@@ -40,12 +40,7 @@ export class BookService {
   }
 
   removeBook(bookToRemove: Book) {
-    let updatedBooks : Book[] = [];
-    for(let book of this._books){
-      if(book !== bookToRemove)
-        updatedBooks.push(book);
-    }
-    this._books = updatedBooks;
+    this._books = this._books.filter(book => book !== bookToRemove);
     this._bookSubject.next([...this._books]);
   }
 
@@ -53,4 +48,13 @@ export class BookService {
     this._books.push(bookToAdd);
     this._bookSubject.next([...this._books]);
   }
+
+  getBookById(bookId: number) {
+    let result : Book | undefined;
+    result = this._books.find(book => book.bookId === bookId);
+    if(result !== undefined)
+      return result;
+    return null;
+  }
+
 }

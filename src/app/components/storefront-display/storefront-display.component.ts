@@ -27,12 +27,4 @@ export class StorefrontDisplayComponent implements OnInit {
     })
     this.currentUser = this.userService.currentUser;
   }
-
-  addToCartOnClick(book: Book) {
-    if(this.currentUser === null){
-      this.router.navigate(['login/']);
-      return;
-    }
-    this.userService.addToCart(book, 1, this.currentUser);
-  }
 }

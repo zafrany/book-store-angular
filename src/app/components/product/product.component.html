@@ -3,7 +3,7 @@
     <img src={{book?.bookPictureLink}} class="picture-flex-container">
     <div>{{book?.bookName}}</div>
     <div>Product ID: {{book?.bookId}}</div>
-    <button class="add-to-cart-button" (click)="addToCartOnClick(book!)">Add to cart</button>
+    <app-add-to-cart-button [book]="book!"></app-add-to-cart-button>
   </div>
 </div>
 

@@ -18,7 +18,7 @@
 </div>
 <h2>Search results:</h2>
 <div *ngIf="filteredResults.length !== 0" class="search-results">
-  <app-book-display-card *ngFor="let book of filteredResults" [book]="book">
+  <app-book-display-card *ngFor="let book of filteredResults" [book]="book" [admin]="true">
     <button (click)="onUpdateBookClick(book)">Edit book details</button>
     <button (click)="onRemoveClick(book)">Remove book</button>
   </app-book-display-card>
@@ -31,7 +31,7 @@
 </div>
 <div class="modal" *ngIf="displayEditBookModal">
   <div class="edit-book-modal">
-    <app-book-display-card [book]="this.currentItem!"></app-book-display-card>
+    <app-book-display-card [book]="this.currentItem!" [admin]="true"></app-book-display-card>
     <form [formGroup]="editDetailsForm" (ngSubmit)="onSubmitEditForm()">
       <h2>Edit book details:</h2>
       <div class="update-form-row">

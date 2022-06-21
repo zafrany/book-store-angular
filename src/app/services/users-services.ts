@@ -54,45 +54,36 @@ export class UsersService {
     this._currentUserSubject.next(this._currentUser);
   }
 
-  addToCart(book: Book, quantity: number, currentUser: User){
-    for(let user of this._users){
-      if(user === currentUser)
+  addToCart(book: Book, quantity: number){
+      if(this._currentUser !== null)
       {
-        for(let cartItem of user.cart.items)
-        {
+        let result : CartItem|undefined;
+        result = this._currentUser.cart.items.find(item => item.item === book);
+        if(result !== undefined)
+          result.quantity++;
 
-          if(cartItem.item.bookId === book.bookId){
-            cartItem.quantity++;
-            return;
-          }
+        else {
+          this._currentUser.cart.items.push(
+            {
+              item: book,
+              quantity : quantity,
+            }
+          )
         }
-        user.cart.items.push(
-          {
-            item: book,
-            quantity : quantity,
-          }
-        )
         this._userSubject.next([...this._users]);
         return;
       }
-    }
   }
 
   changeItemQuantity(cartItem: CartItem, quantity: number){
-    let newCart : CartItem [] = [];
-    for(let user of this._users){
-      if(user === this._currentUser){
-        for(let loopCartItem of user.cart.items){
-          if (loopCartItem === cartItem){
-            loopCartItem.quantity = quantity;
-          }
-
-          if(loopCartItem.quantity !== 0)
-            newCart.push(loopCartItem);
+    let result : CartItem|undefined;
+    if(this._currentUser !== null){
+      result = this._currentUser.cart.items.find(item => item === cartItem);
+        if (result !== undefined){
+          result.quantity = quantity;
         }
-      }
-      user.cart.items = newCart;
-      return;
+        this._currentUser.cart.items = this._currentUser.cart.items.filter(item => item.quantity > 0);
     }
+    return;
   }
 }

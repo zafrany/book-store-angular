@@ -14,6 +14,7 @@ export class AdminLoginComponent implements OnInit {
   userName!: AbstractControl|null;
   password!: AbstractControl|null;
   loginFailed: boolean = false;
+  currentAdmin! : AdminUser;
 
   admins: AdminUser[] = [];
   constructor(private fb: FormBuilder, private adminService: AdminService, private router:Router) { }
@@ -31,6 +32,8 @@ export class AdminLoginComponent implements OnInit {
     this.admins = this.adminService.admins;
     if(this.adminService.currentAdmin !== null)
       this.router.navigate(['/admin/managment']);
+
+
   }
 
   onSubmitLoginForm() {
@@ -42,6 +45,7 @@ export class AdminLoginComponent implements OnInit {
         if(admin.password === this.password?.value){
           console.log("login succesfull with username: " + admin.userName);
           this.adminService.setCurrentAdminUser(admin);
+          localStorage.setItem('currentAdmin', JSON.stringify(this.adminService.currentAdmin));
           this.router.navigate(['/admin/managment']);
           return;
         }

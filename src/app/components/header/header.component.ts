@@ -8,7 +8,6 @@ import { UsersService } from 'src/app/services/users-services';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userLogged: boolean = false;
   userName: string = "";
   currentUser: User| null = null;
 
@@ -17,15 +16,16 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.currentUserData.subscribe((currentUser)=>{
       this.currentUser = currentUser;
-      if(this.currentUser !== null){
-        this.userLogged = true;
-      }
     })
+
     this.currentUser = this.userService.currentUser;
   }
 
+  loggedUser(){
+    return this.userService.currentUser !== null;
+  }
+
   onLogout(){
-    this.userLogged = false;
     this.userService.logoutUser();
   }
 }

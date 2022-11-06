@@ -20,4 +20,8 @@ export class AdminHeaderComponent implements OnInit {
   homeNavigate() {
     this.router.navigate(['home']);
   }
+
+  adminLogout() {
+    this.adminService.adminLogout();
+  }
 }

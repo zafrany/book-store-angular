@@ -35,7 +35,7 @@ export class AdminService {
     this._currentAdminSubject.next(this._currentAdmin);
   }
 
-  logoutUser(){
+  adminLogout(){
     this._currentAdmin = null;
     this._currentAdminSubject.next(this._currentAdmin);
   }
